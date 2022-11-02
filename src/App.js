@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import Amazon from "./Components/Amazon";
 import Cart from "./Components/Cart";
 import "./Components/Styles/amazon.css"
+// import AddProduct from "./Components/AddProduct";
 
 
 function App() {
@@ -31,9 +32,13 @@ setWarning(false);
 
   return (
   <React.Fragment>
-    <Navbar size={cart.length} />
-    <Amazon handleClick={handleClick}/>
-    <Cart cart={cart} setCart={setCart}/>
+    {/* <AddProduct/>   */}
+    <Navbar size={cart.length} setShow = {setShow} />
+    {
+      show ? <Amazon handleClick={handleClick}/>: <Cart cart={cart} setCart={setCart}/>
+    }
+    
+    
     {
     warning && <div className="warning">I tem is already addded to your cart</div>
   }
